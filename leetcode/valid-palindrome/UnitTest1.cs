@@ -5,44 +5,21 @@ public class UnitTest1
     public bool IsPalindrome(string s)
     {
         var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-        var processed = "";
-        foreach (char symbol in s.ToLower())
-        {
-            if (alphabet.Contains(symbol))
-            {
-                processed += symbol;
-            }
-        }
+        s = s.ToLower().Replace(" ", "");
+        int left = 0;
+        int right = s.Length - 1;
 
-        if (processed.Length <= 1)
-        {
-            return true;
-        }
-
-        var left = processed.Substring(0, processed.Length / 2);
-        var right = processed.Substring(processed.Length / 2, processed.Length / 2);
-        if (processed.Length % 2 != 0)
-        {
-            right = processed.Substring((processed.Length / 2) + 1, processed.Length / 2);
-        }
-
-        var stack = new System.Collections.Generic.Stack<char>();
-        foreach (char symbol in left)
-        {
-            stack.Push(symbol);
-        }
-
-        foreach (char symbol in right)
-        {
-            if (stack.Peek() == symbol)
-            {
-                stack.Pop();
-            }
-            else
-            {
+        while (left < right) {
+            while (left < right && !alphabet.Contains(s[left]))
+                ++left;
+            while (left < right && !alphabet.Contains(s[right]))
+                --right;
+            if (s[left] != s[right])
                 return false;
-            }
+            ++left;
+            --right;
         }
+
         return true;
     }
 
