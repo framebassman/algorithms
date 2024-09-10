@@ -7,7 +7,7 @@
           "type": "process",
           "args": [
               "build",
-              "${workspaceFolder}/leetcode/merge-two-sorted-lists/merge-two-sorted-lists.csproj",
+              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj",
               "/property:GenerateFullPaths=true",
               "/consoleloggerparameters:NoSummary;ForceNoAlign"
           ],
@@ -19,7 +19,7 @@
           "type": "process",
           "args": [
               "publish",
-              "${workspaceFolder}/leetcode/merge-two-sorted-lists/merge-two-sorted-lists.csproj",
+              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj",
               "/property:GenerateFullPaths=true",
               "/consoleloggerparameters:NoSummary;ForceNoAlign"
           ],
@@ -33,7 +33,7 @@
               "watch",
               "run",
               "--project",
-              "${workspaceFolder}/leetcode/merge-two-sorted-lists/merge-two-sorted-lists.csproj"
+              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj"
           ],
           "problemMatcher": "$msCompile"
       }
