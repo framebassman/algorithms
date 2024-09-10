@@ -7,7 +7,7 @@
           "type": "process",
           "args": [
               "build",
-              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj",
+              "${workspaceFolder}/playground/playground.csproj",
               "/property:GenerateFullPaths=true",
               "/consoleloggerparameters:NoSummary;ForceNoAlign"
           ],
@@ -19,7 +19,7 @@
           "type": "process",
           "args": [
               "publish",
-              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj",
+              "${workspaceFolder}/playground/playground.csproj",
               "/property:GenerateFullPaths=true",
               "/consoleloggerparameters:NoSummary;ForceNoAlign"
           ],
@@ -33,7 +33,7 @@
               "watch",
               "run",
               "--project",
-              "${workspaceFolder}/leetcode/remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.csproj"
+              "${workspaceFolder}/playground/playground.csproj"
           ],
           "problemMatcher": "$msCompile"
       }
