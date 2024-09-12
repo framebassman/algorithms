@@ -9,12 +9,6 @@ public class Person
     public int ParentId { get; set; }
     public string Name { get; set; } = "Unnamed";
     public IList<int> Children { get; set; } = new List<int>();
-
-    // public override string ToString()
-    // {
-    //     var children = string.Join(";", Children);
-    //     return $"Id: {Id}, ParentId: {ParentId}, Name: {Name}, Children: {children} \n";
-    // }
 }
 
 public class UnitTest1
@@ -24,7 +18,7 @@ public class UnitTest1
     public UnitTest1(ITestOutputHelper console) { _console = console; }
     
     // Your code here
-    public static IList<Person> FillChildren(IList<Person> persons)
+    public static IList<Person> FillChildrenBruteForce(IList<Person> persons)
     {
         if (persons.Count == 0) {
             return persons;
@@ -47,6 +41,28 @@ public class UnitTest1
             }
         }
         
+        return persons;
+    }
+
+    public static IList<Person> FillChildrenDictionary(IList<Person> persons)
+    {
+        if (persons.Count == 0) {
+            return persons;
+        }
+
+        var dictionary = new Dictionary<int, List<int>>();
+        foreach (Person candidate in persons) {
+            if (dictionary.ContainsKey(candidate.Id)) {
+                dictionary[candidate.Id].Add(candidate.ParentId);
+            } else {
+                dictionary.Add(candidate.Id, new List<int>() { candidate.ParentId });
+            }
+        }
+
+        foreach (Person candidate in persons) {
+            candidate.Children = dictionary[candidate.Id];
+        }
+
         return persons;
     }
 
@@ -98,7 +114,7 @@ public class UnitTest1
             }
         };
 
-        var result = FillChildren(persons);
+        var result = FillChildrenDictionary(persons);
         
         Xunit.Assert.Equivalent(expected, result);
     }
