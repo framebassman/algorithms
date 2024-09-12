@@ -22,6 +22,21 @@ public class UnitTest1
 
         return true;
     }
+    
+    public bool IsPalindromeSimple(string s)
+    {
+        int left = 0;
+        int right = s.Length - 1;
+
+        while (left < right) {
+            if (s[left] != s[right])
+                return false;
+            left++;
+            right--;
+        }
+
+        return true;
+    }
 
     [Fact]
     public void Test1()
@@ -33,5 +48,13 @@ public class UnitTest1
         Xunit.Assert.False(test.IsPalindrome("race a car"));
         Xunit.Assert.True(test.IsPalindrome("A man, a plan, a canal: Panama"));
         Xunit.Assert.False(test.IsPalindrome("0P"));
+    }
+
+    [Fact]
+    public void Test2()
+    {
+        var test = new UnitTest1();
+        Xunit.Assert.True(test.IsPalindromeSimple("aba"));
+        Xunit.Assert.True(test.IsPalindromeSimple("aa"));
     }
 }
