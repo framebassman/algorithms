@@ -3,3 +3,7 @@ new-lc-%:
 
 new-hr-%:
 	cd hackerrank && dotnet new xunit --name $*
+
+rm-vscode-files:
+	rm .vscode/launch.json
+	rm .vscode/tasks.json
