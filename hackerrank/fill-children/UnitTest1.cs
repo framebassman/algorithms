@@ -52,15 +52,21 @@ public class UnitTest1
 
         var dictionary = new Dictionary<int, List<int>>();
         foreach (Person candidate in persons) {
-            if (dictionary.ContainsKey(candidate.Id)) {
-                dictionary[candidate.Id].Add(candidate.ParentId);
+            if (candidate.Id == candidate.ParentId) {
+                throw new Exception();
+            }
+
+            if (dictionary.ContainsKey(candidate.ParentId)) {
+                dictionary[candidate.ParentId].Add(candidate.Id);
             } else {
-                dictionary.Add(candidate.Id, new List<int>() { candidate.ParentId });
+                dictionary.Add(candidate.ParentId, new List<int>() { candidate.Id });
             }
         }
 
         foreach (Person candidate in persons) {
-            candidate.Children = dictionary[candidate.Id];
+            if (dictionary.ContainsKey(candidate.Id)) {
+                candidate.Children = dictionary[candidate.Id];
+            }
         }
 
         return persons;
@@ -69,7 +75,7 @@ public class UnitTest1
     [Fact]
     public void Test1()
     {
-        var persons = new List<Person>()
+        var persons1 = new List<Person>()
         {
             new Person()
             {
@@ -91,7 +97,7 @@ public class UnitTest1
             }
         };
 
-        var expected = new List<Person>()
+        var expected1 = new List<Person>()
         {
             new Person()
             {
@@ -113,9 +119,17 @@ public class UnitTest1
                 ParentId = 1,
             }
         };
+        Xunit.Assert.Equivalent(expected1, FillChildrenDictionary(persons1));
 
-        var result = FillChildrenDictionary(persons);
-        
-        Xunit.Assert.Equivalent(expected, result);
+        var persons2 = new List<Person>()
+        {
+            new Person()
+            {
+                Id = 1,
+                Name = "John",
+                ParentId = 1,
+            }
+        };
+        Xunit.Assert.Throws<Exception>(() => FillChildrenDictionary(persons2));
     }
 }
