@@ -8,7 +8,7 @@ public class AutoResetEventExperiments
     private int x = 0;  // общий ресурс
     private AutoResetEvent waitHandler = new AutoResetEvent(true);
 
-    public static void Main(string[] args)
+    public static void Main1(string[] args)
     {
         var test = new AutoResetEventExperiments();
         test.Run();
