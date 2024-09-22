@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/leetcode/merge-two-sorted-lists/bin/Debug/net8.0/merge-two-sorted-lists.dll",
+            "program": "${workspaceFolder}/leetcode/fibonacci-number/bin/Debug/net8.0/fibonacci-number.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/leetcode/merge-two-sorted-lists",
+            "cwd": "${workspaceFolder}/leetcode/fibonacci-number",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
