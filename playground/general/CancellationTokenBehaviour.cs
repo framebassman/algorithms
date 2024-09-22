@@ -1,4 +1,4 @@
-namespace playground;
+namespace general;
 
 public class CancellationTokenBehaviour
 {

@@ -1,4 +1,4 @@
-namespace playground;
+namespace general;
 
 using System;
 

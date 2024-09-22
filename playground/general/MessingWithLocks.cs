@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using Xunit.Abstractions;
 
-namespace playground;
+namespace general;
 
 class LockTest
 {

@@ -1,6 +1,6 @@
 using Xunit.Abstractions;
 
-namespace playground;
+namespace general;
 
 public class AutoResetEventExperiments
 {
