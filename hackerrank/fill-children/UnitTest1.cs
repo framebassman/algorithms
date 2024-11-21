@@ -3,14 +3,6 @@ using Xunit.Abstractions;
 
 namespace fill_children;
 
-public class Person
-{
-    public int Id { get; set; }
-    public int ParentId { get; set; }
-    public string Name { get; set; } = "Unnamed";
-    public IList<int> Children { get; set; } = new List<int>();
-}
-
 public class UnitTest1
 {
     private ITestOutputHelper _console;
@@ -50,7 +42,7 @@ public class UnitTest1
             return persons;
         }
 
-        var dictionary = new Dictionary<int, List<int>>();
+        var dictionary = new Dictionary<int, List<int>?>();
         foreach (Person candidate in persons) {
             if (candidate.Id == candidate.ParentId) {
                 throw new Exception();
