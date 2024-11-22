@@ -16,7 +16,7 @@ public class UnitTest1
         Xunit.Assert.Equal("hit again", battleship.Shoot(1, 1));
         Xunit.Assert.Equal("sink First", battleship.Shoot(2, 1));
     }
-    
+
     public class SolutionBattleship
     {
         private Dictionary<string, List<Tuple<int, int>>> _ships;
@@ -55,13 +55,11 @@ public class UnitTest1
                 if (coordinatesLeft == 1) {
                     return $"sink {shipName}";
                 }
-                else {
-                     return "hit";
-                }
+
+                return "hit";
             }
-            else {
-                return "missed";
-            }
+
+            return "missed";
         }
         
         private string GetCoordinatesValue(int x, int y)
