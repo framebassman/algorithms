@@ -16,9 +16,9 @@ public class UnitTest1
     public void Test1()
     {
         int[,] board = {
-            { 0, 0, 0},
-            { 0, 1, 0},
-            { 0, 0, 0}
+            { 0, 0, 0, 0},
+            { 0, 1, 0, 0},
+            { 0, 0, 0, 0}
         };
         Xunit.Assert.Equal("safe", GetTileInfo(board, 0, 0).Status);
         Xunit.Assert.Equal(1, GetTileInfo(board, 0, 0).AdajcentMinesCount);
@@ -33,7 +33,7 @@ public class UnitTest1
             return new TileInfo { Status = "invalid", AdajcentMinesCount = -1 };
         }
 
-        if (board[x, y] == 1)
+        if (board[y, x] == 1)
         {
             return new TileInfo { Status = "mine", AdajcentMinesCount = -1 };
         }
@@ -41,40 +41,40 @@ public class UnitTest1
         var adajcentMinesCount = 0;
         if (x - 1 > 0)
         {
-            if (y - 1 > 0 && board[x - 1, y - 1] == 1)
+            if (y - 1 > 0 && board[y - 1, x - 1] == 1)
             {
                 adajcentMinesCount++;
             }
-            if (board[x - 1, y] == 1)
+            if (board[y, x - 1] == 1)
             {
                 adajcentMinesCount++;
             }
-            if (y + 1 < board.GetLength(1) && board[x - 1, y + 1] == 1)
+            if (y + 1 < board.GetLength(1) && board[y + 1, x - 1] == 1)
             {
                 adajcentMinesCount++;
             }
         }
 
-        if (y - 1 > 0 && board[x, y - 1] == 1)
+        if (y - 1 > 0 && board[y - 1, x] == 1)
         {
             adajcentMinesCount++;
         }
-        if (y + 1 < board.GetLength(1) && board[x, y + 1] == 1)
+        if (y + 1 < board.GetLength(1) && board[y + 1, x] == 1)
         {
             adajcentMinesCount++;
         }
 
         if (x + 1 < board.GetLength(0))
         {
-            if (y - 1 > 0 && board[x + 1, y - 1] == 1)
+            if (y - 1 > 0 && board[y - 1, x + 1] == 1)
             {
                 adajcentMinesCount++;
             }
-            if (board[x + 1, y] == 1)
+            if (board[y, x + 1] == 1)
             {
                 adajcentMinesCount++;
             }
-            if (y + 1 < board.GetLength(1) && board[x + 1, y + 1] == 1)
+            if (y + 1 < board.GetLength(1) && board[y + 1, x + 1] == 1)
             {
                 adajcentMinesCount++;
             }
