@@ -44,5 +44,6 @@ public class UnitTest1
         Xunit.Assert.Equal(1, counting("011"));
         Xunit.Assert.Equal(2, counting("010"));
         Xunit.Assert.Equal(4, counting("001101"));
+        Xunit.Assert.Equal(10, counting("10010011100011"));
     }
 }
