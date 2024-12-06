@@ -10,25 +10,24 @@ public class UnitTest1
     static int counting(string s) {
         var counter = 0;
         for (int i = 0; i < s.Length - 1; i++) {
-            var deque = new LinkedList<char>();
-            deque.AddLast(s[i]);
-            int j = i + 1;
-            bool hasBeenDecreased = false;
-            while (j < s.Length) {
-                if (deque.First.Value == s[j]) {
-                    if (hasBeenDecreased) {
+            var stack = new Stack();
+            stack.Push(s[i]);
+            var pushedValue = s[i];
+            bool hasBeenPoped = false;
+            for (int j = i + 1; j < s.Length; j++) {
+                if (pushedValue == s[j]) {
+                    if (hasBeenPoped) {
                         break;
                     }
-                    deque.AddLast(s[j]);
+                    stack.Push(s[j]);
                 } else {
-                    deque.RemoveFirst();
-                    hasBeenDecreased = true;
-                    if (deque.Count == 0) {
-                        counter++;
-                        break;
-                    }
+                    stack.Pop();
+                    hasBeenPoped = true;
                 }
-                j++;
+                if (stack.Count == 0) {
+                    counter++;
+                    break;
+                }
             }
         }
         return counter;
@@ -37,11 +36,11 @@ public class UnitTest1
     [Fact]
     public void Test1()
     {
-        // Xunit.Assert.Equal(1, counting("01"));
-        // Xunit.Assert.Equal(2, counting("0011"));
-        // Xunit.Assert.Equal(1, counting("011"));
-        // Xunit.Assert.Equal(2, counting("010"));
-        // Xunit.Assert.Equal(4, counting("001101"));
+        Xunit.Assert.Equal(1, counting("01"));
+        Xunit.Assert.Equal(2, counting("0011"));
+        Xunit.Assert.Equal(1, counting("011"));
+        Xunit.Assert.Equal(2, counting("010"));
+        Xunit.Assert.Equal(4, counting("001101"));
         Xunit.Assert.Equal(10, counting("10010011100011"));
         //                               1 0 0 1 0 0 1 1 1 0 0 0 1 1
         //                               0 1 2 3 4 5 6 7 8 9 10111213 
