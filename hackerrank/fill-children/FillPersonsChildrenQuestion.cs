@@ -39,7 +39,7 @@ class Solution
         throw new NotImplementedException();
     }
 
-    static void Main(String[] args)
+    static void Entrypoint(String[] args)
     {
         var p1 = new Person()
         {
