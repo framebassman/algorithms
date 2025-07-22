@@ -32,7 +32,7 @@ public class MessingWithStructs
             IntProperty = 33,
             OrdinalClassProperty = new OrdinalClass() { Id = 1 }
         };
-        
+
         Assert.False(first.Equals(second));
     }
 }
