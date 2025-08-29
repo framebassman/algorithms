@@ -41,7 +41,6 @@ public class MessingWithLocks
         _console = console;
     }
 
-    // Проблем с lock() не будет, потому что у B будет другой контекст лока?
     [Fact]
     public void Test1()
     {
